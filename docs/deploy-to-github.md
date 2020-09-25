@@ -46,3 +46,10 @@ GitHub Pages allows you to have a "GitHub user page" that acts as a profile/main
   ```js
   pathPrefix: '/<your-gridsome-repo-name>',
   ```
+
+## 使用自已的域名
+达到效果：我想在浏览器中输入 `gridsome.0he1.com` 访问到我的gh-pages上的网站 `https://youshengyouse.github.io/gridsome.org/`(首先要确保这个网址是可以访问的)
+
+- `ping youshengyouse.github.io` 得到ip地址为 `185.199.110.153`
+- 进入域名注册商后台，我的是 `cp.35.com`，对 `0he1.com`解析，加上 `A类型`，主机名是 `gridsome`，IP地址或主机名中输入: `185.199.110.153`
+- 进入仓库，点击Settings,向下拉，找到`GitHub Pages`，在Custom domain中输入 `gridsome.0he1.com`
