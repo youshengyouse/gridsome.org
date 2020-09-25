@@ -1,6 +1,6 @@
-# Project configuration
+# 项目配置
 
-Gridsome requires `gridsome.config.js` to work. Plugins and project settings are located here. A basic configuration file would look something like this:
+项目必需有配置文件 `gridsome.config.js` . 插件和项目设置就是这里配置，下面是一个基本配置:
 
 ```js
 module.exports = {
@@ -12,17 +12,17 @@ module.exports = {
 
 ## siteName
 
-- Type `string`
-- Default `<dirname>`
+- 类型`string`
+- 默认值`<dirname>`
 
-Set a name for your project. The name is typically used in the title tag.
+设置项目的名字，通常它会出现在title tag中
 
 ## siteDescription
 
 - Type `string`
 - Default `''`
 
-The description is used as description on your frontpage.
+站点描述.
 
 ## siteUrl
 
@@ -43,15 +43,14 @@ subdirectory called `my-app`.
 - Type `string`
 - Default `%s - <siteName>`
 
-Set a template for the title tag. The `%s` placeholder is replaced with title
-from metaInfo that you set in your pages.
+设置标签title的模板，其中 `%s` 是占位符，它会被页面metaInfo中指定的title替换
 
 ## plugins
 
-- Type `Array`
-- Default `[]`
+- 类型`Array`
+- 默认`[]`
 
-Activate plugins by adding them to the `plugins` array.
+用到的插件都放在 `plugins` 中，它是一个数组.
 
 ```js
 module.exports = {
@@ -68,25 +67,25 @@ module.exports = {
 }
 ```
 
-[Read more about how to use plugins](/plugins/)
+[进一步了解如何使用插件](/plugins/)
 
 ## templates
 
 - Type `object`
 - Default `{}`
 
-Define routes and templates for collections.
+为集全定义路由和模板.
 
-[Read more about using templates](/docs/templates/)
+[进一步学习模板](/docs/templates/)
 
 ## metadata
 
 - Type `object`
 - Default `{}`
 
-Add global metadata to the GraphQL schema.
+给GraphQL schema 添加全局 metadata.
 
-[Read more about global metadata](/docs/metadata/)
+[进一步学习全局metadata](/docs/metadata/)
 
 ## icon
 
@@ -263,4 +262,4 @@ Supported loaders are:
 - Type `string`
 - Default `'dist'`
 
-The directory where the production build files will be generated in when running `gridsome build`.
+当使用 `gridsome build` 构建后生成的文件，放在该目录中.

@@ -2,7 +2,7 @@
   <Section dots="true" class="post"  dark="true">
 
       <h5 class="text-center">
-        How Gridsome Works
+        Gridsome 工作原理
       </h5>
 
       <h2 class="text-center primary-color container-sm">

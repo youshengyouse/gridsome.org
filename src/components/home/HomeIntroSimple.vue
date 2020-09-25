@@ -3,16 +3,16 @@
     <div class="container text-center ">
 
         <h1 class="intro__title">
-          <span>A Jamstack framework for Vue.js</span>
+          <span>基于Vue.js开发的Jamstack框架</span>
         </h1>
 
         <p class="intro__lead lead post mb">
-          Gridsome makes it easy for developers to build static generated websites & apps that are <g-link to="/docs/fast-by-default/">fast by default</g-link> 🚀
+          使用Gridsome构建静态网站和应用，不但容易，且 <g-link to="/docs/fast-by-default/">速度快</g-link> 🚀
         </p>
 
         <p class="intro__links">
           <g-link  to="/docs/" class="button primary button--large">
-            <span>Get started</span>
+            <span>入门</span>
           </g-link>
         </p>
 

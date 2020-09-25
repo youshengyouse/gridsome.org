@@ -8,8 +8,8 @@
         ref="input"
         :id="`${id}-input`"
         class="header-search__input"
-        placeholder="Search Gridsome docs..."
-        title="Search docs"
+        placeholder="在Gridsome文档中搜索..."
+        title="文档搜索"
         type="search"
         @focus="onFocus"
       />

@@ -1,8 +1,8 @@
 # Pages API
 
-The Pages API lets you create custom pages. This API is called after the GraphQL schema has been generated so you can query nodes and create pages from them or any other data.
+使用Pages API 可以创建自定义页面， 页面API 在 GraphQL schema生成之后调用， 所以可以读取node并使用它或其它数据来创建页面.
 
-Start by using the `api.createPages()` hook in `gridsome.server.js`:
+从在 `gridsome.server.js`中使用 `api.createPages()` 钩子开始
 
 ```js
 //gridsome.server.js
@@ -13,15 +13,30 @@ module.exports = function (api) {
 }
 ```
 
-## Create a page
+```js
+api.createPages((obj)=>{}) 中obj的内容如下
+{
+  graphql: [Function: graphql],
+  resolve: [Function: resolve],
+  slugify: [Function: slugify],
+  getCollection: [Function: getCollection],
+  getContentType: [Function: getContentType],
+  createPage: [Function: createPage],
+  createRoute: [Function: createRoute]
+}
+```
+
+
+
+## 创建一个page
 
 Use the `createPages` hook if you want to create pages. Pages created in this hook will be re-created and garbage collected occasionally. Use the `createManagedPages` below to have more control over when pages are updated or deleted manually.
 
 ### createPage(options)
 
 - options `object`
-  - **path** `string` *Required.*
-  - **component** `string` *Required.*
+  - **path** `string` *必需.*
+  - **component** `string` *必需.*
   - context `object` *Optional context for the page and `page-query`.*
   - queryVariables `object` *Optional context only for `page-query`.*
 
@@ -36,7 +51,40 @@ module.exports = function (api) {
 }
 ```
 
-## Create managed pages
+```js
+api.createPages(async ({ createPage }) => {
+    // 我测试返回的data是12条数据{id,title,content}
+    const { data } = await axios.get('http://0he2.bendi/api/data')
+    data.forEach(({ id, title, content }) => {
+      createPage({
+        path: '/a/' + id, // 这里是url地址，如 http://localhost:8081/a/8，就会显示January.vue这个页面的内容，xx/a/13，显示404，没找到页面
+        component: './src/templates/January.vue' // 当浏览器中输入上面的地址后，实际调用的是January.vue组件，如何向组件传递数呢
+        context:{
+          id: id
+      }
+          
+      })
+    })
+  })
+
+// 在模板文件January.vue中，可以直接使用 {{ $context.id }},也可在js部分 console.log(this.$context)看下
+// 在path中可以使用变量，如 path: '/a/:id'，在January.vue使用 this.$route.params.id可以读取
+```
+
+```js
+// 正常的做法是，先使用graphql获取数据，再将数据传到模板中
+
+```
+
+
+
+参考:  https://lyon.digital/gridsome-with-craft-cms/
+
+参考:  https://github.com/gridsome/gridsome/pull/309
+
+
+
+## 创建managed pages
 
 Pages created in the `createPages` hook will be re-created and garbage collected occasionally. That's why that hook is only able to create pages. You can use a `createManagedPages` hook to create, update and remove pages yourself.
 
@@ -85,7 +133,7 @@ Returns all pages matching the provided query.
 
 Returns first pages matching the provided query.
 
-## The page context
+## page上下文
 
 Each page can have a context which will be available as variables for `page-query`. The context will also be available in the page component as `$context`. If you only want the context to be available for `page-query`, use the `queryVariables` option instead.
 
@@ -122,9 +170,9 @@ query ($customValue: String) {
 </page-query>
 ```
 
-## Example usage
+## 使用样例
 
-### Create pages from GraphQL
+### 从GraphQL创建页面
 
 ````js
 //gridsome.server.js
@@ -154,7 +202,7 @@ module.exports = function (api) {
 }
 ````
 
-### Create pages from external APIs
+### 从外部APIs创建pages
 
 We use `createManagedPages` in this example because we don't need the pages to be re-created on changes. The template also uses the context for rendering data instead of GraphQL results.
 

@@ -13,6 +13,59 @@ Prism.languages.html.graphql = {
 }
 
 module.exports = function (api) {
+
+  /**
+   * loadSource的参数是一个匿名函数，该函数的参数是
+   * {
+          graphql: [Function: graphql],
+          resolve: [Function: resolve],
+          slugify: [Function: slugify],
+          addCollection: [Function: addCollection],
+          getCollection: [Function: getCollection],
+          getNodeByUid: [Function: getNodeByUid],
+          getNode: [Function: getNode],
+          addMetadata: [Function: addMetadata],
+          store: {
+            createUniqueId: [Function: createUniqueId],
+            createReference: [Function: createReference]
+          },
+          addContentType: [Function: addContentType],
+          getContentType: [Function: getContentType],
+          addMetaData: [Function: addMetaData],
+          createTypeName: [Function: createTypeName],
+          createReference: [Function: createReference],
+          makeUid: [Function: makeUid],
+          makeTypeName: [Function: makeTypeName],
+          GraphQLSchema: [Function: GraphQLSchema],
+          GraphQLScalarType: [Function: GraphQLScalarType],
+          GraphQLObjectType: [Function: GraphQLObjectType],
+          GraphQLInterfaceType: [Function: GraphQLInterfaceType],
+          GraphQLUnionType: [Function: GraphQLUnionType],
+          GraphQLEnumType: [Function: GraphQLEnumType],
+          GraphQLInputObjectType: [Function: GraphQLInputObjectType],
+          GraphQLList: [Function: GraphQLList],
+          GraphQLNonNull: [Function: GraphQLNonNull],
+          GraphQLDeprecatedDirective: @deprecated,
+          GraphQLInt: Int,
+          GraphQLFloat: Float,
+          GraphQLString: String,
+          GraphQLBoolean: Boolean,
+          GraphQLID: ID,
+          GraphQLJSON: JSON,
+          addSchema: [Function: addSchema],
+          addSchemaTypes: [Function: addSchemaTypes],
+          addSchemaResolvers: [Function: addSchemaResolvers],
+          addSchemaFieldExtension: [Function: addSchemaFieldExtension],
+          schema: {
+            createEnumType: [Function],
+            createObjectType: [Function],
+            createUnionType: [Function],
+            createScalarType: [Function],
+            createInterfaceType: [Function],
+            createInputType: [Function]
+          }
+        }
+   */
   api.loadSource(async ({ addMetadata, addCollection }) => {
     let gridsomeVersion = ''
 

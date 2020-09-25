@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav flex gap-15">
     <g-link to="/docs/">
-      <span class="main-nav__label">Docs</span>
+      <span class="main-nav__label">文档</span>
     </g-link>
 
     <g-link to="/starters/">
@@ -9,7 +9,7 @@
     </g-link>
 
     <g-link to="/plugins/">
-      <span class="main-nav__label">Plugins</span>
+      <span class="main-nav__label">插件</span>
     </g-link>
 
     <g-link to="/blog/">

@@ -1,26 +1,25 @@
-# Deploy to GitHub Pages
+# 在GitHub Pages上部署
 
-GitHub Pages allows you to deploy your site to GitHub's free static site hosting service.
+GitHub Pages提供了静态网站服务.
 
-There's a few steps to complete:
+步骤如下:
 
-1. Install `gh-pages` using `yarn add gh-pages` or `npm i gh-pages`
-
-2. Add the following to `gridsome.config.js`:
+1. 安装 `gh-pages` ，使用 `yarn add gh-pages` 或 `npm i gh-pages`
+2. 修改 `gridsome.config.js` ，添加下面内容:
 
 ```js
   siteUrl: 'https://<your-github-username>.github.io',
   pathPrefix: '/<your-gridsome-repo-name>',
 ```
 
-3. Add the following scripts to your `package.json`:
+3. 修改 `package.json`中的scripts部分，添加下面内容:
 
 ```json
   "predeploy": "npm run build",
   "deploy": "gh-pages -d dist"
 ```
 
-4. Run the command `npm run deploy`
+4. 运行命令 `npm run deploy`
 
 5. Go to GitHub's website and make sure your Repo's settings under "GitHub Pages" show the `gh-pages` branch under "Source".
 

@@ -4,7 +4,7 @@
       <div class="home-cols__left">
 
         <h1 class="home-title">
-            Build <br class="show-for-small" />
+            构建 <br class="show-for-small" />
             <VueTyper :text="words" :type-delay="30" initial-action="erasing" caret-animation="smooth" />
             <br /> websites & apps
             <br /> with Vue.js
@@ -12,7 +12,7 @@
 
         <p class="home-links">
           <g-link  to="/docs/" class="button primary button--large">
-            Get started
+            入门
           </g-link>
         </p>
 

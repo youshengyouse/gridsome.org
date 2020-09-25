@@ -1,18 +1,18 @@
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Gridsome官网',
   siteUrl: `https://www.gridsome.org`,
-  titleTemplate: '%s - Gridsome',
-  siteDescription: 'Gridsome is a free & open source Vue.js-powered framework for building websites & apps that are fast by default 🚀.',
+  titleTemplate: '%s - 欢迎使用Gridsome',
+  siteDescription: 'Gridsome基于Vue.js开发，用于构建静态网站和应用，速度超快的开源框架 🚀.',
 
-  chainWebpack(config, { isServer }) {
+  chainWebpack (config, { isServer }) {
     config.module.rules.delete('svg')
     config.module.rule('svg')
       .test(/\.svg$/)
       .use('vue')
       .loader('vue-loader')
-        .end()
+      .end()
       .use('svg-to-vue-component')
       .loader('svg-to-vue-component/loader')
 
@@ -24,11 +24,12 @@ module.exports = {
           /vue-instantsearch/,
           /instantsearch.js/,
           /typeface-league-spartan/
-         ]
+        ]
       }))
     }
   },
 
+  // 模板
   templates: {
     BlogPost: '/blog/:year/:month/:day/:slug',
     Contributor: '/contributor/:id',
@@ -52,13 +53,19 @@ module.exports = {
         height: 900
       }
     },
+
+    // 插件用法 https://cnpmjs.org/package/@gridsome/vue-remark
+
+
+
+
     {
       use: '@gridsome/vue-remark',
       options: {
         index: ['README'],
-        baseDir: './docs',
-        pathPrefix: '/docs',
-        typeName: 'DocPage',
+        baseDir: './docs', // .md文件放置的目录
+        pathPrefix: '/docs', // 路由前缀
+        typeName: 'DocPage', // 必需
         template: './src/templates/DocPage.vue',
         plugins: [
           '@gridsome/remark-prismjs'
@@ -99,6 +106,13 @@ module.exports = {
           ]
         }
       }
+    }
+    ,
+    {
+      use: '~/src/plugins/theme/',
+      options: {
+        theme: 'blueOcean'       
+        }
     }
   ]
 }

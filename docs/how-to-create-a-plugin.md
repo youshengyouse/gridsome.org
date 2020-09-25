@@ -1,38 +1,38 @@
-# How to create a plugin
+# 如何新建插件
 
-Need a plugin that doesn't exist yet?
+如果需要一个插件，但没有现成的，只好自己动手，丰衣足食
 
-##### Core plugins
+##### 核心插件
 
 Feel free to create an issue if you have a plugin suggestion that should be maintained in core, like general source plugins or other common functionalities that will fit most use cases. That will also let others join the discussion about how it should be implemented first. Transformers for common file types should also be maintained in the core repository.
 
-##### Plugin library
+##### 插件库
 
 Any plugins on NPM can be added to plugin library. Add a `gridsome-plugin` keyword in `package.json` to make it available in the [plugin library](/plugins).
 
-## Create a source plugin
+## 创建一个source plugin
 
-Source plugins are responsible for retrieving data from APIs and insert it into the internal database. If you plan on doing exactly that, call your plugin `gridsome-source-*` or `@username/gridsome-source-*` if you publish the plugin with a namespace.
+源插件表示是从API获取数据，并插入到内部数据库中. 插件名字可以叫 `gridsome-source-*` 或 `@username/gridsome-source-*`，前面加一个命名空间.
 
-Learn more about the [Data Store API](/docs/data-store-api/)
+进一步学习 [Data Store API](/docs/data-store-api/)
 
-## Create a general plugin
+## 创建一个 general plugin
 
-Other plugins that add functionality should be named `gridsome-plugin-*` or `@username/gridsome-plugin-*`.
+其它的插件叫 `gridsome-plugin-*` 或 `@username/gridsome-plugin-*`.
 
-Learn more about the [Server API](/docs/server-api/) or [Client API](/docs/client-api/)
+进一步学习 [Server API](/docs/server-api/) 或 [Client API](/docs/client-api/)
 
-## Create a transformer
+## 创建一个 transformer
 
-Transformers don't work like the plugins above, but they are used by the source plugins to parse content. They can also add more fields to the GraphQL schema. Transformers must be named `gridsome-transformer-*` or `@username/gridsome-transformer-*` in order to be found by the source plugins.
+Transformers的功能与上面的插件不一样, 它为源插件服务，用来解析内容的. 它们也可以用来给GraphQL schema添加一些field. Transformers名字叫 `gridsome-transformer-*` 或 `@username/gridsome-transformer-*` ，目的是为了方便源插件找到.
 
-Learn more about the [Transformer API](/docs/transformer-api/)
+进一步学习 [Transformer API](/docs/transformer-api/)
 
-## Plugins for other plugins
+## 其它插件的插件 Plugins for other plugins
 
-Some plugins, like the `@gridsome/transformer-remark`, can have its own plugins. They can be named `gridsome-remark-*` or `@username/gridsome-remark-*`.
+有些插件，如 `@gridsome/transformer-remark`, 可以有自己的插件. 名字叫 `gridsome-remark-*` 或 `@username/gridsome-remark-*`.
 
-## Testing your plugin
+## 插件测试
 
 1. [Create a new Gridsome project](/docs/#2-create-a-gridsome-project) (if you don't want to test with an existing one)
 2. Open a terminal in your plugin project directory

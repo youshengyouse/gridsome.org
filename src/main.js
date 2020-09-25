@@ -1,4 +1,4 @@
-// Import global styles
+// 导入全局样式
 import '~/assets/style/index.scss'
 
 // Add global components
@@ -21,6 +21,7 @@ const typography = new Typography({
 })
 
 export default function (Vue, { head, router, isServer }) {
+
   Vue.component('Layout', Layout)
   Vue.component('DocsLayout', DocsLayout)
   Vue.component('Section', Section)

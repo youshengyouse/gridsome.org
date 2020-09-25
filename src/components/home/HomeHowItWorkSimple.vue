@@ -2,11 +2,11 @@
   <Section class="works">
     <div class="grid-cols grid-cols--gap-large grid-cols--full-md">
 
-      <Card title="Bring your data">
+      <Card title="数据源">
         <h4>CMSs</h4>
-        <p>Any Headless CMS, Contentful, WordPress, Drupal, Sanity.io, etc.</p>
+        <p>任何无头 CMS, Contentful, WordPress, Drupal, Sanity.io, etc.</p>
         <h4>Data</h4>
-        <p>Any APIs, Databases, AirTable, YAML, CSV, JSON, etc.</p>
+        <p>任何 APIs, Databases, AirTable, YAML, CSV, JSON, etc.</p>
         <h4>Markdown</h4>
         <p>Any Git-based CMS, Forestry, Netlify CMS, Blogs, Documentation.</p>
 
@@ -16,7 +16,7 @@
         </template>
       </Card>
 
-      <Card title="Build" class="text-center flex-align-middle">
+      <Card title="构建" class="text-center flex-align-middle">
 
         <div class="works__logo">
           <gridsome-logo />
@@ -41,8 +41,8 @@
         </template>
       </Card>
 
-      <Card title="Deploy">
-        <h4>Static Web Hosts & CDNs</h4>
+      <Card title="部署">
+        <h4>静态网站主机和CDN</h4>
         <p>
           <g-link to="/docs/deploy-to-netlify/">Netlify</g-link>, <g-link to="/docs/deploy-to-amplify/">AWS Amplify</g-link>, <g-link to="/docs/deploy-to-vercel/">Vercel (formerly ZEIT Now)</g-link>, <g-link to="/docs/deploy-to-amazon-s3/">Amazon S3</g-link>, <g-link to="/docs/deploy-to-surge-sh/">Surge.sh</g-link>, Aerobatic & many more.
         </p>

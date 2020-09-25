@@ -4,13 +4,13 @@
 
       <div class="sidebar">
 
-          <h3 class="menu-item" >Browse</h3>
+          <h3 class="menu-item" >Browse浏览</h3>
 
           <g-link class="menu-item menu-link" to="/starters/">
             All starters
           </g-link>
 
-          <h3 class="menu-item" >Platforms</h3>
+          <h3 class="menu-item" >Platforms平台</h3>
 
           <g-link class="menu-item platform-link" v-for="item in platforms"  :key="item.node.id" :to="item.node.path" >
             <g-image v-if="item.node.logo" :src="item.node.logo" />

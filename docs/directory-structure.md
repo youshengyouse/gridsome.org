@@ -1,6 +1,6 @@
-# Directory structure
+# 目录结构
 
-A basic Gridsome project would be structured like this:
+一个最基本的Gridsome项目，结构如下:
 
 ```text
 .
@@ -21,88 +21,165 @@ A basic Gridsome project would be structured like this:
         └── BlogPost.vue
 ```
 
-## The root directory
+## 根目录
 
 ### package.json
 
-Contains information about which plugins are installed in your project.
+包含项目中安装了哪些插件等相关信息.
 
 ### gridsome.config.js
 
-This file contains configuration and options for installed plugins.
+它是gridsome启动时会读取的配置文件，包含安装的插件的配置和选项.
 
-[Read more about project config](/docs/config/)
+[项目配置参考](/docs/config/)
 
 ### gridsome.server.js
 
-This file is optional and is used to hook into various parts of the Gridsome server. The file must export a function which will have access to the API.
+它是可选的， is used to hook into various parts of the Gridsome server. 它导出的是一个函数，函数的参数是 PluginAPI.
 
-[Read more about the Server API](/docs/server-api/)
+```js
+PluginAPI {
+  _entry: 对象,
+  _transformers: undefined,
+  _app: App 对象,
+  _store: PluginStore 对象,
+  _on: [Function: bound _on],
+  resolve: [Function: bound resolve],
+  setClientOptions: [Function: bound setClientOptions],
+  transpileDependencies: [Function: bound transpileDependencies],
+  registerComponentParser: [Function: bound registerComponentParser],
+  loadSource: [Function: bound loadSource],
+  createSchema: [Function: bound createSchema],
+  createPages: [Function: bound createPages],
+  createManagedPages: [Function: bound createManagedPages],
+  chainWebpack: [Function: bound chainWebpack],
+  configureWebpack: [Function: bound configureWebpack],
+  configureServer: [Function: bound configureServer],
+  onInit: [Function: bound onInit],
+  onBootstrap: [Function: bound onBootstrap],
+  onCreateNode: [Function: bound onCreateNode],
+  beforeBuild: [Function: bound beforeBuild],
+  afterBuild: [Function: bound afterBuild]
+}
+```
 
-## The `/src` directory
+[进一步学习Server API](/docs/server-api/)
+
+##  `/src` 目录
 
 ### Main.js
 
-Import global styles and scripts here. The file also has an export function that has access to the **Client API**. This file is the place to install Vue plugins, register components and directives, etc.
+- 导入全局样式和脚本
+- 安装Vue插件，注册组件、指令等
+- 它导出的也是一个函数，函数第一个参数为Vue,第二个参数**Client API**如下，包括5个属性
 
-[Read more about using the Client API in main.js](/docs/client-api/)
+```json
+isClient: true
+isServer: false
+appOptions: {
+    data: {}
+    metaInfo: {
+        titleTemplate: "%s - 欢迎使用Gridsome"
+        htmlAttrs: {…}, 
+        meta: Array(4), …
+        }
+    methods: {}
+    render: ƒ render(h)
+    router: VueRouter 对象
+}
+head: {
+    base: {}
+    htmlAttrs: {lang: "en"}
+    link: Array(9)
+        0: {rel: "icon", href: "data:,"}
+        1: {rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/static/src/favicon.png?width=16&key=6aa06a6"}
+        2: {rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/static/src/favicon.png?width=32&key=6aa06a6"}
+        3: {rel: "icon", type: "image/png", sizes: "96x96", href: "/assets/static/src/favicon.png?width=96&key=6aa06a6"}
+        4: {rel: "apple-touch-icon", type: "image/png", sizes: "76x76", href: "/assets/static/src/favicon.png?width=76&key=f6f3c9c"}
+        5: {rel: "apple-touch-icon", type: "image/png", sizes: "152x152", href: "/assets/static/src/favicon.png?width=152&key=f6f3c9c"}
+        6: {rel: "apple-touch-icon", type: "image/png", sizes: "120x120", href: "/assets/static/src/favicon.png?width=120&key=f6f3c9c"}
+        7: {rel: "apple-touch-icon", type: "image/png", sizes: "167x167", href: "/assets/static/src/favicon.png?width=167&key=f6f3c9c"}
+        8: {rel: "apple-touch-icon", type: "image/png", sizes: "180x180", href: "/assets/static/src/favicon.png?width=180&key=f6f3c9c"}
+    meta: Array(4)
+        0: {charset: "utf-8"}
+        1: {name: "generator", content: "Gridsome v0.7.20"}
+        2: {key: "viewport", name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover"}
+        3: {key: "format-detection", name: "format-detection", content: "telephone=no"}
+    noscript: Array(1)
+        0: {innerHTML: "<style>.g-image--loading{display:none;}</style>"}
+    script: []
+    style: []
+    titleTemplate: "%s - 欢迎使用Gridsome"
+    }
 
-### Layouts directory
+router: VueRouter{
+    addRoutes: ƒ (routes)
+    afterHooks: []
+    app: null
+    apps: []
+    beforeHooks: (2) [ƒ, ƒ]
+    fallback: false
+    history: HTML5History {router: VueRouter, base: "", current: {…}, pending: null, ready: false, …}
+    matcher: {match: ƒ, addRoutes: ƒ}
+    mode: "history"
+    options: {base: "/", mode: "history", fallback: false, routes: Array(82), scrollBehavior: ƒ}
+    resolveHooks: []
+}
 
-Create components in this directory if you want to share one or more
-layouts for your pages or templates.
+```
 
-[Read more about layouts](/docs/layouts/)
 
-### Pages directory
+[进一步了解main.js中Client API](/docs/client-api/)
 
-All components in this directory become the pages for your website.
-Each page will get its path based on the location of its `.vue` file.
-`src/pages/Index.vue` will become the homepage for your website,
-while `src/pages/AboutUs.vue` will be `example.com/about-us`.
+### 布局目录layouts
 
-[Read more about pages](/docs/pages/)
+在`src/layouts`目录中创建组件，在页面page和模板template中共享这个目录下的布局组件.
 
-### Templates directory
+[进一步学习布局](/docs/layouts/)
 
-If you are importing an external data source, like posts from a
-WordPress blog, into your project then each post would look for a
-component in this directory for its template. The name of the
-component file must match the node type in your GraphQL schema.
+### 布面目录pages
 
-[Read more about templates](/docs/templates/)
+在该目录下所有的`.vue`单组件文件都是网站的页面，每个页面的路径与它在目录中的位置有关，无须做什么配置就可以在浏览器中访问，如
+`src/pages/Index.vue`，对应的url是 `http://localhost:8080/` , `src/pages/AboutUs.vue` 对应的是 `http://localhost:8080//about-us`.
 
-### Custom index.html
+[进一步学习pages](/docs/pages/)
 
-Occasionally you will need to override the base HTML template that Gridsome uses to generate your pages from. Gridsome makes this really easy. All you have to do is create a new `index.html` file in your `src` directory.
+### 模板目录templates
 
-[Read more about overriding index.html](/docs/overriding-index/)
+如果想导入外部数据源，如从WordPress博客中导入帖子到你网站中，那么每个帖子会在templates目录中找到它对应的模板组件，组件文件的名字要与 GraphQL schema中的节点类型node type匹配
 
-### Custom App.vue
+[进一步学习templates](/docs/templates/)
+
+### 自定义 index.html
+
+对于Gridsome自动生成的页面，通常需要你重写基本的html模板，非常容易，只需在`src`目录中创建一个新的 `index.html` 文件即可(默认无此文件).
+
+[如何重写index.html](/docs/overriding-index/)
+
+### 自定义 App.vue
 
 The `App.vue` file is the main component that wraps all your pages and templates. You can override the default file by having your own `App.vue` file in your `src` directory. Overriding the default is useful if you want to have a layout that is shared across all your pages.
 
-[Read more about overriding App.vue](/docs/overriding-app/)
+[如何重写 App.vue](/docs/overriding-app/)
 
-## The `/static` directory
+##  `/static` 目录
 
-Files in this directory will be copied directly to `dist` during build. For example, **/static/robots.txt** will be located at https://yoursite.com/robots.txt
+静态目录下的文件会拷贝到最终打包后的目录 `dist` 中. 比如, **/static/robots.txt** 的最终位置是 https://yoursite.com/robots.txt
 
-## Aliases
+## 别名 Aliases
 
-In Gridsome you can use the aliases `~` or `@` to link to files inside the `/src` folder. For example, you can import a Vue component by using `import Card from '~/components/Card'`
+在Gridsome中，可以使用别名 `~` 或 `@` 代表文件夹 `/src` . 比如,  `import Card from '~/components/Card'`
 
-## Recommendation
+## 推荐
 
-### Assets
+### 静态资源Assets
 
-Global styles, images, fonts and icons are usually added to a `src/assets` directory.
+全局styles, images, fonts 和 icons 通常放在 `src/assets` 目录中.
 
-### Shared or global components
+### 共享或全局组件
 
-Components that you want to use in several pages or templates can be stored
-in a `src/components` directory.
+组件一般放在`src/components` 目录中，方便文件和模板使用.
 
-### Data files
+### 数据文件
 
-Data files like `.json` or `.yaml` that you want to import into your components, can be stored in a `src/data` directory.
+要导入到组件中的数据文件，如 `.json` 或 `.yaml`文件， 可以保存在 `src/data` 目录中.

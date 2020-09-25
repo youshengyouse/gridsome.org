@@ -1,91 +1,91 @@
 - title: Prologue
   items:
-    - title: Introduction
+    - title: 介绍
       link: /docs/
-    - title: Core concepts
+    - title: 核心概念
       link: /docs/core-concepts/
     - title: Fast by default
       link: /docs/fast-by-default/
-    - title: Deployment
+    - title: 部署
       link: /docs/deployment/
 
-- title : Basic Gridsome
+- title : 基础
   items:
-    - title: Directory structure
+    - title: 目录结构
       link: /docs/directory-structure/
-    - title: Project configuration
+    - title: 项目配置
       link: /docs/config/
     - title: Pages
       link: /docs/pages/
     - title: Collections
       link: /docs/collections/
-    - title: Templates
+    - title: 模板
       link: /docs/templates/
-    - title: Layouts
+    - title: 布局
       link: /docs/layouts/
-    - title: Components
+    - title: 组件
       link: /docs/components/
     - title: Linking
       link: /docs/linking/
-    - title: Dynamic Routing
+    - title: 动态路由
       link: /docs/dynamic-routing/
-    - title: Image processing
+    - title: 图片处理
       link: /docs/images/
     - title: Populating <head>
       link: /docs/head/
-    - title: Environment Variables
+    - title: 环境变量
       link: /docs/environment-variables/
 
-- title : Working with data
+- title : 数据处理
   items:
     - title: GraphQL data layer
       link: /docs/data-layer/
-    - title: Importing data
+    - title: 导入数据
       link: /docs/fetching-data/
     - title: Querying data
       link: /docs/querying-data/
-    - title: Filtering data
+    - title: 过滤数据
       link: /docs/filtering-data/
     - title: Taxonomy pages
       link: /docs/taxonomies/
     - title: Paginate data
       link: /docs/pagination/
-    - title: Global metadata
+    - title: 全局元数据metadata
       link: /docs/metadata/
-    - title: Client-side data
+    - title: 客户端数据
       link: /docs/client-side-data/
 
-- title : Styles and Assets
+- title : 样式和资源
   items:
-    - title: Use CSS in Gridsome
+    - title: 在Gridsome中使用CSS
       link: /docs/assets-css/
-    - title: Add custom fonts
+    - title: 添加自定义字体
       link: /docs/assets-fonts/
-    - title: Add external scripts
+    - title: 添加外部scripts
       link: /docs/assets-scripts/
-    - title: Add SVG icons
+    - title: 添加 SVG icons
       link: /docs/assets-svg/
 
-- title : Guides
+- title : 指南
   items:
-    - title: Add a form
+    - title: 添加表单
       link: /docs/guide-forms/
-    - title: Add a search *
+    - title: 添加搜索 *
       link: /docs/guide-search/
-    - title: Add comments
+    - title: 添加评论
       link: /docs/guide-comments/
     - title: Add Netlify CMS
       link: /docs/guide-netlify-cms/
-    - title: Overriding index.html
+    - title: 重写 index.html
       link: /docs/overriding-index/
-    - title: Overriding App.vue
+    - title: 重写 App.vue
       link: /docs/overriding-app/
     - title: Page transitions
       link: /docs/page-transitions/
     - title: body & html attributes
       link: /docs/body-html-attributes/
 
-- title: API Reference
+- title: API 参考
   items:
     - title: Gridsome CLI
       link: /docs/gridsome-cli/
@@ -102,7 +102,7 @@
     - title: Transformer API
       link: /docs/transformer-api/
 
-- title: Deploy
+- title: 部署
   items:
     - title: Netlify
       link: /docs/deploy-to-netlify/
@@ -121,24 +121,35 @@
     - title: Surge.sh
       link: /docs/deploy-to-surge-sh/
 
-- title: Contribute
+- title: tapable
   items:
-    - title: How to contribute
+    - title: tapable安装
+      link: /docs/tapable/
+    - title: 钩子Hook分类
+      link: /docs/tapable-hook/
+    - title: 钩子Hook中注册和执行插件
+      link: /docs/tapable-plugin/      
+    - title: 在gridsome中如何创建插件
+      link: /docs/how-to-create-a-plugin/
+
+- title: 贡献
+  items:
+    - title: 如何贡献代码
       link: /docs/how-to-contribute/
-    - title: How to create a plugin
+    - title: 如何新建插件
       link: /docs/how-to-create-a-plugin/
     - title: Code of conduct
       link: /docs/code-of-conduct/
 
-- title: Help
+- title: 帮助
   items:
   - title: Prerequisites
     link: /docs/prerequisites/
-  - title: How to upgrade
+  - title: 如何升级
     link: /docs/how-to-upgrade/
-  - title: Troubleshooting
+  - title: 问题处理
     link: /docs/troubleshooting/
-  - title: Dev tools
+  - title: 开发工具
     link: /docs/dev-tools/
   - title: FAQ
     link: /docs/faq/

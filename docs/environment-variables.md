@@ -1,8 +1,8 @@
-# Environment variables
+# 环境变量
 
-Sometimes you want configuration values that are different from what you have in the production build. Gridsome utilizes the [dotenv](https://www.npmjs.com/package/dotenv) package to make this easy. Create a file called `.env` at the root of your project.
+有时，想在不同的环境使用不同的变量，使用包 [dotenv](https://www.npmjs.com/package/dotenv) 就可以实现这点. 在项目的根目录创建文件 `.env` .
 
-If you want different variables for your local development, then create a file named `.env.development`. Similarly, you can create a file with the name `.env.production` to have variables only for the production build. Although production variables are usually added by the hosting providers. The default `.env` file will only be loaded if no `dotenv` file exists for the current environment.
+如果你想在开发环境使用不同的变量，那么就新建文件 `.env.development`. 同理，如果是在生产环境就新建文件 `.env.production` ，不同的环境调用不同的文件，如果没有定义这两个文件，会找.env文件，默认是没有环境文件.
 
 ```ini
 GRIDSOME_API_URL=https://api.example.com
@@ -10,9 +10,9 @@ DB_USER=root
 DB_PASS=s1mpl3
 ```
 
-## Usage on the server
+## 在服务器中使用
 
-All variables will be available as `process.env.{name}` on the server.
+所有的变量都可以通过 `process.env.{name}` 获取
 
 ```js
 module.exports = {
@@ -28,9 +28,9 @@ module.exports = {
 }
 ```
 
-## Usage in the browser
+## 在浏览器中使用
 
-While all the variables are available on the server, only variables prefixed with `GRIDSOME_` are available in the browser for security reasons. As you see in the example above, only `GRIDSOME_API_URL` is prefixed. That is because we don't want to have `DB_USER` and `DB_PASS` compiled into our JavaScript.
+在服务器所有的环境变量都可以读取，但在浏览器，为了安全，只有 `GRIDSOME_` 开头的变量才可以读取. 如上例中，只有 `GRIDSOME_API_URL` 是以`GRIDSOME_` 开头的，这是因为不想将 `DB_USER` 和`DB_PASS` 编译到 JavaScript中.
 
 ```js
 export default {

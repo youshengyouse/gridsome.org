@@ -1,21 +1,22 @@
-# Templates
+# 模板
 
-> Templates are used to create single pages for nodes in a [collection](/docs/collections/). Nodes need a corresponding page in order to be presented on its own URL.
+> 模板是为[collection](/docs/collections/) 中节点，生成单个文件用. 节点需要一个对应的页面，有自己的URL来展示.
 
 ## Setup templates
 
-The example below shows you how to setup route and template for a [collection](/docs/collections/) named `Post`. A component located at `src/templates/{Collection}.vue` will be used as template if no component is specified.
+下面例子演示如何给名为`Post`的[集合collection](/docs/collections/)设置路由和模板. 如果没有明确指定模板名，默认是 `src/templates/{Collection}.vue`文件，集合的名字与模板的名字一样(.vue) .
 
 ```js
 // gridsome.config.js
 module.exports = {
   templates: {
-    Post: '/blog/:year/:month/:title',
+    Post: '/blog/:year/:month/:title', 
+    BlogPost: '/blog/:year/:month/:day/:slug',// 当浏览器中输入 http://localhost:8080/blog/2019/10/08/about/时，它会匹配到这个，那么templates/Post.vue就是对应的模板文件，根据上面的4个变量，从外部读取相应的数据填充到这个模板中，就是这天博客的内容，所有的博客排版都一样，只是url和内容对应变化
   }
 }
 ```
 
-Specify a **custom component** path:
+指定 **custom component** 路径:
 
 ```js
 // gridsome.config.js
@@ -31,7 +32,7 @@ module.exports = {
 }
 ```
 
-Setup **multiple templates** for a collection:
+一个集合也可以设置 **多个模板** :
 
 ```js
 // gridsome.config.js
@@ -57,17 +58,17 @@ Template paths are available in the GraphQL schema with a `path` field. Use a `t
 ```graphql
 query ($id: ID!) {
   product(id: $id) {
-    path               # path to the default template
-    path(to:"reviews") # path to the reviews template
+    path               # 默认的路径
+    path(to:"reviews") # reviews模板的路径
   }
 }
 ```
 
-Available template options are:
+模板有以下几个选项:
 
 - **path** - Define a dynamic route and use any node field as parameters.
-- **component** - Specify a component to use as template for each page.
-- **name** - Specify a name for the template to get the path in GraphQL.
+- **component** - 指定每个页面的模板，它是一个.vue组件.
+- **name** - 为模板指定一个名字，用来从GraphQL中读取路径.
 
 Path parameters are slugified by default, but the original value can be used by adding a `_raw` suffix, eg. `:title_raw`. Access values in deep objects or arrays by separating properties or indexes with double underscores (`__`). The `date` field has a set of shorthand helpers; `:year`, `:month` and `:day`.
 
@@ -96,7 +97,7 @@ module.exports = {
 
 Each node will get a `path` field in the GraphQL schema which contains the generated URL.
 
-## Add data to a template
+## 给模板添加数据
 
 Pages generated from the `templates` configuration will have the node `id` available as a [query variable](https://graphql.org/learn/queries/#variables) in the `page-query` block. Use the `$id` variable to get the node for the current page:
 

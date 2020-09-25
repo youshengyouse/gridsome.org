@@ -3,6 +3,7 @@
     <Header />
     <slot></slot>
     <Footer v-if="footer !== false" />
+    <!--/默认模板-->
   </div>
 </template>
 

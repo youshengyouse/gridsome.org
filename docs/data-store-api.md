@@ -1,8 +1,8 @@
-# Data Store API
+# 数据存储(Data Store) API
 
-The Data Store API lets you insert your own data into the GraphQL data layer. You will then be able to access it through GraphQL in your components. **Use this API if you want to build a custom data source connection or a plugin.**
+使用Data Store API，向 GraphQL 数据层添加自己的数据，这样，在组件中就可以通过GraphQL 访问这些数据. **Use this API if you want to build a custom data source connection or a plugin.**
 
-Start by using the `api.loadSource()` hook in `gridsome.server.js`:
+首先得在 `gridsome.server.js` 中配置 `api.loadSource()` 钩子:
 
 ```js
 module.exports = function (api) {
@@ -12,12 +12,12 @@ module.exports = function (api) {
 }
 ```
 
-## Add a collection
+## 添加一个collection
 
-### actions.addCollection(options)
+### actions.addCollection(选项)
 
-- options `object | string` *Options or just a GraphQL schema type name.*
-  - typeName `string` *Required GraphQL schema type and template name.*
+- 选项`object | string`     *  选项可以是一个对象或字符串，字符串代表的是  GraphQL schema 类型名.*
+  - typeName `string` *  必需，GraphQL schema 类型和模板名字.*
 
 ```js
 api.loadSource(actions => {
@@ -27,11 +27,11 @@ api.loadSource(actions => {
 
 ### actions.getCollection(typeName)
 
-- typeName `string` *The GraphQL schema type name.*
+- typeName `string` *  GraphQL schema类型名字.*
 
-Get a collection previously created.
+获取前面创建的collection.
 
-## Add nodes to collections
+## 往 collections 中添加nodes 
 
 ### collection.addNode(options)
 

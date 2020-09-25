@@ -1,7 +1,10 @@
+<!-- 首页index.html -->
 <!DOCTYPE html>
 <html ${htmlAttrs}>
   <head>
+    <!--head-->
     ${head}
+    <!--/head-->
   </head>
   <body ${bodyAttrs}>
     
@@ -37,8 +40,11 @@
         setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
       })();
     </script>
-
+    <!--app-->
     ${app}
+    <!--/app-->
+    <!--scripts-->
     ${scripts}
+    <!--/scripts-->
   </body>
 </html>

@@ -1,27 +1,25 @@
-# Use CSS in Gridsome
+# 在Gridsome中使用CSS
 
-Global stylesheets and assets are usually located in the `src/assets` folder and imported into `src/main.js`.
+全局的样式和资源放在 `src/assets` 文件夹下，并在 `src/main.js`中导入
 
-## Import a global style
+## 导入全局样式
 
-Add this to `src/main.js` to import a global CSS file.
+使用import在 `src/main.js` 中导入全局样式
 
 ```js
 import '~/assets/styles.css'
 ```
-💡 `~` is an alias to project **/src/** folder.
+💡 `~` 是项目 **/src/** 目录的别名.
 
-## Use SASS & CSS pre-processors
+## 使用SASS 和 CSS 预处理器
 
-To enable **SASS** you need to run command `npm install -D sass-loader node-sass` to install the required packages.
-
-Now you can import **.scss** files in **src/main.js**:
+使用 **SASS** 之前得安装`sass-loader node-sass`两个依赖包， `npm install -D sass-loader node-sass` .现在可以在**src/main.js**中导入**.scss** 文件，当开发服务器启动了，此时对scss的修改，会立即在浏览器中反映出来，可以修改下背景色试下
 
 ```js
 import '~/assets/styles.scss'
 ```
 
-You can also use SASS in **Vue Components** with the `lang="scss"` attribute:
+在 **Vue Components** 中只需加上 `lang="scss"` 特征就可以:
 ```html
 <style lang="scss">
 .element {
@@ -32,13 +30,13 @@ You can also use SASS in **Vue Components** with the `lang="scss"` attribute:
 </style>
 ```
 
-[Learn more about using using Pre-Processors in Vue.js](https://vue-loader.vuejs.org/guide/pre-processors.html)
+[在Vue.js中如何使用预处理器参考官方文档](https://vue-loader.vuejs.org/guide/pre-processors.html)
 
-### Global Preprocessor Files (ie. variables, mixins)
+### 全局预处理器文件 (如. 变量variables, 混合mixins)
 
 Often when you're working on a project, you'll have a set of variables, mixins, and framework variable overrides that you'll want to be automatically used in your components/layouts so you don't have to keep manually importing them.
 
-Start by installing `style-resources-loader`:
+首先安装 `style-resources-loader`:
 
 ```js
 npm i -D style-resources-loader
@@ -70,7 +68,7 @@ module.exports = {
 }
 ```
 
-Then you'll modify the `module.exports` block as follows:
+接下来，修改 `module.exports` 部分如下:
 
 ```js
 module.exports = {
@@ -90,9 +88,9 @@ module.exports = {
 }
 ```
 
-## Add CSS to Vue Components
+## 给 Vue Components添加css
 
-In Vue Components you add styles inside a `<style>` tag.
+在单文件组件`<style>` 标签中.
 
 ```html
 // Example.vue
@@ -109,9 +107,16 @@ In Vue Components you add styles inside a `<style>` tag.
 </style>
 ```
 
-## Scoped styles in Components
+## 在组件中使用Scoped样式
 
-It's very easy to add scoped styles in Vue. Simple add "scoped" to the style tag to automatically add suffix to any CSS class in Markup. This means that styles here will only be applied to current component regardless of the class names you use.
+非常容易，只需要在style标签中加上  "scoped" 就可以，表示只在当前组件中使用这个样式，不会覆盖全局样式，如下例它会生成 
+
+```html
+.card[data-v-54cdc180] {
+  color: red;
+}
+```
+
 
 ```html
 <style scoped>
@@ -120,44 +125,50 @@ It's very easy to add scoped styles in Vue. Simple add "scoped" to the style tag
 }
 </style>
 ```
+如
+```html
+<div class="card">
+```
+加上scoped后变成了
+```html
+<div data-v-54cdc180="" class="card">
+```
 
 This will change the `.card` class in current component automatically to something like **.card[x5u123sc5s1]** and only apply the style to that class.
 
 [Learn more about Scoped styles in Vue](https://vue-loader.vuejs.org/guide/scoped-css.html)
 
-## Enable Critical CSS
+## 启用 Critical CSS
 
-Gridsome [Critical CSS plugin](/plugins/@gridsome/plugin-critical) extracts CSS from components in selected view port size and adds the CSS inline to `<head>`.
+Gridsome中 [Critical CSS 插件](/plugins/@gridsome/plugin-critical) 在选定的视图尺寸下，从组件中抽取css放到 `<head>`中.
 
-## Add a CSS framework
+## 添加CSS framework
 
-## Tailwind
+## Tailwind(重点掌握)
 
-[TailwindCSS](https://tailwindcss.com) is a highly customizable, utility-based CSS framework that gives you all of the building blocks you need to build your project without any opinionated styles you have to fight to override. When using TailwindCSS, it is recommended to use [PostCSS-PurgeCSS](https://github.com/FullHuman/postcss-purgecss) which is a tool used to remove unused CSS; resulting in tiny file sizes.
+[TailwindCSS](https://tailwindcss.com) is a highly customizable, utility-based CSS framework that gives you all of the building blocks you need to build your project without any opinionated styles you have to fight to override. 使用 TailwindCSS 时, 强烈推荐(必装)使用一个非常实例的插件 [PostCSS-PurgeCSS](https://github.com/FullHuman/postcss-purgecss) ，它可以删除没用到的css，最后css文件变得非常小.
 
 ### Add TailwindCSS with a Plugin
 
-The quickest and easiest way to get up and running with Tailwind CSS in your project is to install it with the [Gridsome Tailwind Plugin](/plugins/gridsome-plugin-tailwindcss). A Gridsome plugin will typically have the majority of the boilerplate and configuration done for you, eliminating a lot of the set up time.
+在gridsome中使用tailwindcss最快最简单的方法，是安装插件 [Gridsome Tailwind Plugin](/plugins/gridsome-plugin-tailwindcss). A Gridsome plugin will typically have the majority of the boilerplate and configuration done for you, eliminating a lot of the set up time.
 
-### Add TailwindCSS Manually
+### 手动使用 TailwindCSS
 
-If you prefer to do the install and configuration on your own, you can add TailwindCSS manually with the following instructions.
-
-To install TailwindCSS (choose one):
+如果你想自己安装并配置tailwindCSS, 得先安装TailwindCSS (使用npm或yarn安装):
 ```shell
-# Using npm
+# 使用 npm
 npm install tailwindcss
 
-# Using Yarn
+# 使用 Yarn
 yarn add tailwindcss
 ```
 
-To install PostCSS-PurgeCSS:
+安装 PostCSS-PurgeCSS:
 ```shell
 npm i -D @fullhuman/postcss-purgecss
 ```
 
-Then, create a `main.css` file in the root of your `/src` directory and add the following:
+接着在`/src`目录下新建文件 `main.css` ，内容如下:
 ```css
 @tailwind base;
 
@@ -166,9 +177,9 @@ Then, create a `main.css` file in the root of your `/src` directory and add the 
 @tailwind utilities;
 ```
 
-Now import the `main.css` file into your project. In the `main.js` file add `require('~/main.css')`. Afterwards, your `main.js` file should look something like this:
+在 `main.js` 中 `require('~/main.css')`导入.   `main.js` 如下:
 ```javascript
-// Import global styles
+// 导入全局样式
 require('~/main.css')
 
 import DefaultLayout from '~/layouts/Default.vue'
@@ -180,12 +191,12 @@ export default function (Vue, { router, head, isClient }) {
 }
 ```
 
-Optionally, if you would like to customize your TailwindCSS installation, you can generate a TailwindCSS config file using:
+另外，你也可自定义安装TailwindCSS, 生成TailwindCSS配置文件:
 ```shell
 npx tailwind init
 ```
 
-Which will generate a minimal `tailwind.config.js` file at the root of your project that contains:
+会在项目的根目录生成一个最小的 `tailwind.config.js` 文件:
 ```javascript
 module.exports = {
     theme: {
@@ -196,9 +207,9 @@ module.exports = {
 }
 ```
 
-Learn more about customizing your TailwindCSS installation in Tailwind's [configuration documentation](https://tailwindcss.com/docs/configuration/)
+进一步学习如何自定义安装TailwindCSS，请参考 [配置文档](https://tailwindcss.com/docs/configuration/)
 
-Next, `gridsome.config.js` needs to be updated to add our TailwindCSS and PurgeCSS configuration:
+下一步, `gridsome.config.js` 也要改下，添加TailwindCSS 和 PurgeCSS 配置部分:
 
 ```javascript
 const tailwind = require('tailwindcss')
@@ -224,7 +235,7 @@ module.exports = {
 
 ```
 
-Finally, create a `purgecss.config.js` file in the root of your project and add the configuration below:
+最后, 在项目的根目录创建文件 `purgecss.config.js` ，配置如下:
 
 ```javascript
 module.exports = {
@@ -254,11 +265,11 @@ module.exports = {
 }
 ```
 
-Be sure to restart the `gridsome develop` command to ensure the changes are compiled in the current build.
+重启 `gridsome develop`，生效.
 
 ## Bulma
 
-...plugin coming
+...等完善
 
 ## Buefy
 
