@@ -1,6 +1,6 @@
 # 在GitHub Pages上部署
 
-GitHub Pages提供了静态网站服务.
+GitHub Pages提供了静态网站服务.请先将本地代码push到github上
 
 步骤如下:
 
@@ -21,7 +21,7 @@ GitHub Pages提供了静态网站服务.
 
 4. 运行命令 `npm run deploy`
 
-5. Go to GitHub's website and make sure your Repo's settings under "GitHub Pages" show the `gh-pages` branch under "Source".
+5. 在github网站，进入指定仓库页面，点解Settings，一直向下拉，找到`GitHub Pages`，在`Danger Zone`上面， Repo's settings under "GitHub Pages" show the `gh-pages` branch under "Source".
 
 **Notes**
 

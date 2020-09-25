@@ -2,7 +2,10 @@ const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
   siteName: 'Gridsome官网',
-  siteUrl: `https://www.gridsome.org`,
+  //siteUrl: `https://www.gridsome.org`,
+  siteUrl: 'https://youshengyouse.github.io',
+  pathPrefix: '/gridsome.org',
+
   titleTemplate: '%s - 欢迎使用Gridsome',
   siteDescription: 'Gridsome基于Vue.js开发，用于构建静态网站和应用，速度超快的开源框架 🚀.',
 
