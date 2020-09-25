@@ -1,5 +1,7 @@
 # 在GitHub Pages上部署
 
+> github.io在国内可能访问不了,最后可以部署到 netlify上
+
 GitHub Pages提供了静态网站服务.请先将本地代码push到github上
 
 步骤如下:
@@ -21,7 +23,7 @@ GitHub Pages提供了静态网站服务.请先将本地代码push到github上
 
 4. 运行命令 `npm run deploy`
 
-5. 在github网站，进入指定仓库页面，点解Settings，一直向下拉，找到`GitHub Pages`，在`Danger Zone`上面， Repo's settings under "GitHub Pages" show the `gh-pages` branch under "Source".
+5. 在github网站，进入指定仓库页面，点击`Code`,发现多了一个分支`gh-pages`,切换看下，发现就是本地dist目录的内容。点解Settings，一直向下拉，找到`GitHub Pages`，在`Danger Zone`上面， 发现已自动帮配置好了.
 
 **Notes**
 
