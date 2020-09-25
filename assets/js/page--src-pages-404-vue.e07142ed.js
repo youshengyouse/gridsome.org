@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{"7l0S":function(t,e,n){"use strict";n.r(e);var s=n("K+aO"),a=Object(s.a)({},(function(){var t=this.$createElement,e=this._self._c||t;return e("Layout",[e("Section",{staticClass:"text-center"},[e("h1",[this._v("404 - Page not found文件没找到")])])],1)}),[],!1,null,null,null);e.default=a.exports}}]);

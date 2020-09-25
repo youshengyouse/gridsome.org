@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{SkxS:function(t,e,s){"use strict";s.r(e);var n=s("K+aO"),a=Object(n.a)({},(function(){var t=this.$createElement,e=this._self._c||t;return e("Layout",[e("Section",{attrs:{container:"sm"}},[e("h1",{staticClass:"text-center"},[this._v("Gridsome Ecosystem")])])],1)}),[],!1,null,null,null);e.default=a.exports}}]);
